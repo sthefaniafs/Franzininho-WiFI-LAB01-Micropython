@@ -23,5 +23,6 @@ while True:
     utime.sleep(5)
     set_color(0, 255, 0)  # Verde
     utime.sleep(5)
-    set_color(255, 255, 0)  # Amarelo
+    set_color(255, 60, 0)  # Amarelo
     utime.sleep(3)
+ 

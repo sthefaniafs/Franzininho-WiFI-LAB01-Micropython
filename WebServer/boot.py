@@ -1,38 +1,28 @@
-# This file is executed on every boot (including wake-boot from deepsleep)
-#import esp
-#esp.osdebug(None)
-#import webrepl
-#webrepl.start()
-
-try:
-  import usocket as socket
-except:
-  import socket
-
-import network
+import socket, network
 from machine import Pin
-import dht
+import esp, gc
 
-import esp
+# gerenciador de memória
 esp.osdebug(None)
-
-import gc
 gc.collect()
 
+# dados da rede
 ssid = 'Cabo12'
 password = '96851598'
 
+# configurando como cliente
 wlan = network.WLAN(network.STA_IF)
 wlan.active(True)
 
-# might already be connected somehow.
+# caso já esteja conectado
 if wlan.isconnected() == False:
     wlan.connect(ssid, password)
 
-# Wait for connection.
+# espere conectar
 while wlan.isconnected() == False:
     pass
 
 print('connected!')
+print(wlan.ifconfig())
 
-sensor= dht.DHT11(Pin(15))
+led = Pin(13, Pin.OUT)
