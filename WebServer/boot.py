@@ -7,8 +7,8 @@ esp.osdebug(None)
 gc.collect()
 
 # dados da rede
-ssid = 'Cabo12'
-password = '96851598'
+ssid = 'REDE-WIFI'
+password = 'PASSWORD'
 
 # configurando como cliente
 wlan = network.WLAN(network.STA_IF)
